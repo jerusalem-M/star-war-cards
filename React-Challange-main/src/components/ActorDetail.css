@@ -1,111 +1,44 @@
-   .actor-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* two columns */
-  gap: 20px;
-  padding: 30px;
-  background: linear-gradient(135deg, #fdfbfb, #ebedee);
-  border-radius: 20px;
-  position: relative; /* allows blur overlay */
-}
-
-.actor-list-title {
-  grid-column: 1 / -1; /* title spans both columns */
-  font-size: 2.2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #222;
-}
-
-.actor-card {
+.actor-detail {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 85%;              /* reduced from 90% */
+  max-width: 350px;        /* smaller than before */
   background: #fff;
-  border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.actor-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
-
-.actor-image {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin-bottom: 12px;
-  border: 3px solid #007bff;
-}
-
-.actor-name {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 6px;
+  border-radius: 16px;
   color: #333;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
 }
 
-.actor-details {
+.actor-detail h2 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;       /* slightly smaller */
+  color: #007bff;
+  text-align: center;
+}
+
+.actor-detail p {
+  margin: 6px 0;
   font-size: 0.95rem;
   color: #555;
-  margin-bottom: 12px;
-  text-align: center;
 }
 
-.actor-button {
-  background: linear-gradient(135deg, #007bff, #00c6ff);
+.close-button {
+  background: #ff4d6d;
   border: none;
-  border-radius: 25px;
-  padding: 8px 16px;
-  font-size: 0.9rem;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
   color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  float: right;
+  transition: background 0.3s ease;
 }
 
-.actor-button:hover {
-  background: linear-gradient(135deg, #0056b3, #0096c7);
-  transform: scale(1.05);
-}
-
-/* Overlay when detail card is open */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
-  z-index: 5;
-}
-
-/* Blur effect on list when detail is open */
-.actor-list.blurred {
-  filter: blur(5px);
-}
-
-/* Responsive fallback: one column on mobile */
-@media (max-width: 768px) {
-  .actor-list {
-    grid-template-columns: 1fr; /* single column */
-    padding: 20px;
-  }
-
-  .actor-card {
-    padding: 16px;
-  }
-
-  .actor-image {
-    width: 60px;
-    height: 60px;
-  }
-
-  .actor-button {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-  }
+.close-button:hover {
+  background: #d90429;
 }
