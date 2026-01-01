@@ -1,4 +1,4 @@
-.actor-list {
+   .actor-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* two columns */
   gap: 20px;
